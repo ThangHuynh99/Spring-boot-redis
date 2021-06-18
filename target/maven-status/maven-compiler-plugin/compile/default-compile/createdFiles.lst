@@ -1,0 +1,16 @@
+com\springboot\controller\UserController.class
+com\springboot\entity\RoleEntity.class
+com\springboot\config\BeansConfig.class
+com\springboot\service\impl\UserService.class
+com\springboot\dto\RoleDTO.class
+com\springboot\converter\UserConverter.class
+com\springboot\service\IUserService.class
+com\springboot\entity\RoleName.class
+com\springboot\dto\AbstractDTO.class
+com\springboot\reporsitory\RoleRepository.class
+com\springboot\Application.class
+com\springboot\config\SpringFoxConfig.class
+com\springboot\entity\UserEntity.class
+com\springboot\entity\BaseEntity.class
+com\springboot\reporsitory\UserRepository.class
+com\springboot\dto\UserDTO.class
