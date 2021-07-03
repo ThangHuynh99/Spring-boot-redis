@@ -19,4 +19,5 @@ public class BeansConfig {
 	public UserConverter userConverter() {
 		return new UserConverter();
 	}
+	
 }

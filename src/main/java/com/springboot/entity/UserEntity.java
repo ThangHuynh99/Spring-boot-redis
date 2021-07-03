@@ -10,6 +10,7 @@ import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import org.hibernate.validator.constraints.NotBlank;
@@ -17,20 +18,6 @@ import org.hibernate.validator.constraints.NotBlank;
 @Entity
 @Table(name="user")
 public class UserEntity extends BaseEntity {
-
-	@ManyToMany(fetch = FetchType.LAZY)
-	@JoinTable(name="user_role", joinColumns = @JoinColumn(name="user_id"),
-	inverseJoinColumns = @JoinColumn(name="role_id"))
-	private List<RoleEntity> roles = new ArrayList<>();
-	
-	
-	public List<RoleEntity> getRoles() {
-		return roles;
-	}
-
-	public void setRoles(List<RoleEntity> roles) {
-		this.roles = roles;
-	}
 
 	@Column(name="userName")
 	private String userName;
@@ -44,6 +31,22 @@ public class UserEntity extends BaseEntity {
 	@Column(name="email")
 	private String email;
 	
+	@ManyToMany(fetch = FetchType.LAZY)
+	@JoinTable(name="user_role", joinColumns = @JoinColumn(name="user_id"),
+	inverseJoinColumns = @JoinColumn(name="role_id"))
+	private List<RoleEntity> roles = new ArrayList<>();
+	
+	@OneToOne(mappedBy = "user")
+	private ImageEntity image;
+	
+	public List<RoleEntity> getRoles() {
+		return roles;
+	}
+
+	public void setRoles(List<RoleEntity> roles) {
+		this.roles = roles;
+	}
+
 	public String getEmail() {
 		return email;
 	}

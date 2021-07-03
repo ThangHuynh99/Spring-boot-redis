@@ -7,6 +7,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.FetchType;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
@@ -18,7 +19,7 @@ public class RoleEntity extends BaseEntity{
 	@Column(name="roleName")
 	private RoleName roleName;
 
-	@ManyToMany(mappedBy = "roles")
+	@ManyToMany(mappedBy = "roles", fetch = FetchType.LAZY)
 	List<UserEntity> users = new ArrayList<UserEntity>();
 
 	public RoleName getRoleName() {

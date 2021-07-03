@@ -3,9 +3,9 @@ package com.springboot.service.impl;
 import java.util.ArrayList;
 
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCrypt;
 import org.springframework.stereotype.Service;
 
 import com.springboot.converter.UserConverter;
@@ -44,6 +44,7 @@ public class UserService implements IUserService{
 	public UserDTO save(UserDTO userDTO) {
 		List<RoleEntity> roleEntity = roleRepository.findByRoleName(RoleName.ROLE_USER);
 		UserEntity userEntity = userConverter.toEntity(userDTO);
+		userEntity.setPassWord(BCrypt.hashpw(userEntity.getPassWord(), BCrypt.gensalt(12)));
 		userEntity.setRoles(roleEntity);
 		return userConverter.toDTO(userRepository.save(userEntity));
 	}
@@ -60,4 +61,5 @@ public class UserService implements IUserService{
 	public void delete(Long id) {
 		userRepository.deleteById(id);
 	}
+
 }
