@@ -39,7 +39,7 @@ public class FileUploadService implements IFileUploadService {
 	}
 
 	@Override
-	public void uploadDB(MultipartFile file) {
+	public ImageDTO uploadDB(MultipartFile file) {
 		ImageDTO image = new ImageDTO();
 		try {
 			image.setFileData(file.getBytes());
@@ -47,9 +47,11 @@ public class FileUploadService implements IFileUploadService {
 			image.setFileType(file.getContentType());
 			ImageEntity imageEntity = imageConverter.toEntity(image);
 			imageEntity.setUser(userRepository.getOne((long)1));
-			imageRepository.save(imageEntity);
+			image = imageConverter.toDTO(imageRepository.save(imageEntity));
+			return image;
 		} catch (IOException e) {
 			e.printStackTrace();
+			return null;
 		}
 	}
 

@@ -7,6 +7,6 @@ import com.springboot.dto.ImageDTO;
 public interface IFileUploadService {
 	
 	 void uploadLocal(MultipartFile file);
-	 void uploadDB(MultipartFile file);
+	 ImageDTO uploadDB(MultipartFile file);
 	 ImageDTO downloadFile(Long id);
 }

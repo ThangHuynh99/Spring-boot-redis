@@ -2,7 +2,7 @@ package com.springboot.utils;
 
 public class Test {
 	public static void main(String[] args) {
-		int x = 10, y = 0;
+		int x = 9, y = 0;
 		
 		try {
 			int result = x/y;
@@ -11,5 +11,9 @@ public class Test {
 			System.out.println(e);
 		}
 		System.out.println("finish");
+		
+		if((x & 1) != 0) {
+			System.out.println("X là số lẻ");
+		}
 	}
 }
