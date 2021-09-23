@@ -18,7 +18,7 @@ import com.springboot.dto.ImageDTO;
 import com.springboot.service.IFileUploadService;
 
 @RestController
-@RequestMapping("api")
+@RequestMapping("/api")
 public class FileUploadController {
 
 	@Autowired

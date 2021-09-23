@@ -1,5 +1,6 @@
 package com.springboot.entity;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.Lob;
@@ -17,7 +18,7 @@ public class ImageEntity extends BaseEntity {
 	@Lob
 	private byte[] fileData;
 
-	@OneToOne
+	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "user_id", referencedColumnName = "id")
 	private UserEntity user;
 

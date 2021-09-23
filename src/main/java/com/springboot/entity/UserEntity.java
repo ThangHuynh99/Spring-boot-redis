@@ -15,8 +15,15 @@ import javax.persistence.Table;
 
 import org.hibernate.validator.constraints.NotBlank;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 @Entity
 @Table(name="user")
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class UserEntity extends BaseEntity {
 
 	@Column(name="userName")
@@ -78,5 +85,12 @@ public class UserEntity extends BaseEntity {
 	public void setFullName(String fullName) {
 		this.fullName = fullName;
 	}
-	
+
+	public ImageEntity getImage() {
+		return image;
+	}
+
+	public void setImage(ImageEntity image) {
+		this.image = image;
+	}	
 }

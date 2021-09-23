@@ -16,6 +16,7 @@ import org.springframework.data.annotation.LastModifiedDate;
 @MappedSuperclass
 @SuppressWarnings("unused")
 public class BaseEntity {
+	//UUID tự tạo ra một chuỗi 36 ký tự ngẫu nhiên, vd private UUID id;
 	@Id //notnull va primary 
 	@GeneratedValue(strategy = GenerationType.IDENTITY) // set autoincrement
 	private Long id;

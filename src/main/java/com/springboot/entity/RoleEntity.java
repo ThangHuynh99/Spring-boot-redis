@@ -12,11 +12,11 @@ import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="role")
-public class RoleEntity extends BaseEntity{
-	
+@Table(name = "role")
+public class RoleEntity extends BaseEntity {
+
 	@Enumerated(EnumType.STRING)
-	@Column(name="roleName")
+	@Column(name = "roleName")
 	private RoleName roleName;
 
 	@ManyToMany(mappedBy = "roles", fetch = FetchType.LAZY)
@@ -26,7 +26,6 @@ public class RoleEntity extends BaseEntity{
 		return roleName;
 	}
 
-	
 	public void setRoleName(RoleName roleName) {
 		this.roleName = roleName;
 	}
@@ -38,5 +37,5 @@ public class RoleEntity extends BaseEntity{
 	public void setUsers(List<UserEntity> users) {
 		this.users = users;
 	}
-	
+
 }
